@@ -1,0 +1,109 @@
+﻿@model AntonPaar.Models.ReadingFiles.WordsCountModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<script type="text/javascript" src="~/js/ReadFile.js"></script>
+<script type="text/javascript" src="~/js/worker.js"></script>
+<div>
+    <h4>Words Count Model</h4>
+    <hr />
+    <div class="container">
+        <div class="row BoxThreeD">
+            <div class="col-1">
+                Select File:
+            </div>
+            <div class="col-2">
+                <input type="file" id="uploadfile" />
+            </div>
+            <div class="col-1">
+                <input type="submit" value="Upload File" onclick="uploadFile()" />
+            </div>
+        </div>
+        <br />
+        <div class="row BoxThreeD">
+            <div class="col-2">
+                Select File Type:
+            </div>
+            <div id="divFileTypes" class="col-3">
+                <input type="radio" onchange="onSelectingFileType(this)" name="FileTypeGroup" value="TextFile" /> Text File
+                <input type="radio" onchange="onSelectingFileType(this)" name="FileTypeGroup" value="LogFiles" /> Log File
+                <input type="radio" onchange="onSelectingFileType(this)" name="FileTypeGroup" value="CSVFiles" /> CSV File
+            </div>
+        </div>
+        <br />
+        <div id="fileNames" class="row BoxThreeD" style="display:none">
+            <div class="col-1">
+                Select File:
+            </div>
+            <div class="col-4">
+                <select id="ddlFiles">
+                </select>
+            </div>
+            <div class="col-1">
+                <input type="submit" onclick="filesDropDownOnChange()" value="Load Data" />
+            </div>
+        </div>
+    </div>
+
+    
+
+    <br /><br />
+    <div class="container">
+        <div id="divpagesize" class="row BoxThreeD" style="display:none">
+            Select the number of records to be displayed
+            <select id="pagesize" style="width:100px">
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+            </select>
+        </div>
+        <div id="divresults" class="row BoxThreeD" style="display:none">
+            
+            <table id="tblresults">
+                <tr>
+                    <th>
+                        Word Counts
+                    </th>
+                    <th>
+                        Words
+                    </th>
+                </tr>
+                <tbody>
+                </tbody>
+            </table>
+            <br /><br />
+            <div id="divpagenumber" style="width:30px">
+                <input type="text" id="pagenumber" />
+                <input type="submit" onclick="pageChanged()" value="Go" />
+            </div>
+            <div id="pagination">
+            
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Refresh Page</a>
+</div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div id="Process">
+            The data is being processed. If the file size is huge, then please wait for few seconds. Only 
+            the first load will take a bit of extra seconds.<br />
+            
+            <strong>The data is processing ......</strong>
+            <br />
+
+            Click on "cancel" to stop the operation <br />
+            <input type="button" onclick="cancel();" value="Cancel" />
+        </div>
+    </div>
+
+</div>
