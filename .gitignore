@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AntonPaar.Application/AntonPaar.ProcessData/obj
+/AntonPaar.Application/AntonPaar.Web/.vs
+/AntonPaar.Application/AntonPaar.Models/obj
+/AntonPaar.Application/AntonPaar.ProcessData/obj
+/AntonPaar.Application/AntonPaar.Web/obj
+/AntonPaar.Application/AntonPaar.Models/bin
+/AntonPaar.Application/AntonPaar.ProcessData/bin
+/AntonPaar.Application/AntonPaar.Web/bin
+/AntonPaar.Application/AntonPaar.Web/.vs/AntonPaar.Web/v17
+/AntonPaar.Application/AntonPaar.Web/.vs/AntonPaar.Web/v17/.suo
